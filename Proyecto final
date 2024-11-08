@@ -1,0 +1,182 @@
+package proyecto;
+
+import java.util.Scanner;
+
+public class hola {
+
+	static Scanner lector = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		int rondaas = 1;
+		inicio(rondaas);
+	}
+
+	public static final String RESET = "\u001B[0m";
+	public static final String CIAN = "\u001B[36m";
+	public static final String ROJO = "\u001B[31m";
+	public static final String VERDE = "\u001B[32m";
+	public static final String AMARILLO = "\u001B[33m";
+
+	public static void mostrarArco(String color) {
+		System.out.println(color + "          |-------------------------------------|");
+		System.out.println("          |   1     |    2   |    3   |    4    |");
+		System.out.println("          |         |        |        |         |");
+		System.out.println("          |         |       ---       |         |");
+		System.out.println("          |---------|------| 9 |------|---------|");
+		System.out.println("          |         |       ---       |         |");
+		System.out.println("          |   5     |    6   |    7   |    8    |");
+		System.out.println("          |         |        |        |         |");
+		System.out.println("          |-------------------------------------|" + RESET);
+	}
+
+	public static String equipos(int awda) {
+		String seleccionado = "";
+		String[] equipos2 = { "Boca", "Peñarol", "Platense", "Riber", "Barcelona", "Botafogo", "Real Madrid",
+				"Nacional", "Manchester United", "Betis" };
+		seleccionado = equipos2[awda];
+		return seleccionado;
+	}
+
+	public static void inicio(int rondaas) {
+		int golesJugador = 0;
+		int golesMaquina = 0;
+
+		int eleccionMaquinaAtajar1 = (int) (Math.random() * 9 + 1);
+		System.out.println("la maquina eligio atajar1 " + eleccionMaquinaAtajar1);
+
+		int eleccionMaquinaPatear1 = (int) (Math.random() * 9 + 1);
+		System.out.println("la maquina eligio patear1 " + eleccionMaquinaPatear1);
+
+		int eleccionMaquinaAtajar2 = (int) (Math.random() * 9 + 1);
+		System.out.println("la maquina eligio atajar2 " + eleccionMaquinaAtajar2);
+
+		int eleccionMaquinaPatear2 = (int) (Math.random() * 9 + 1);
+		System.out.println("la maquina eligio patear2 " + eleccionMaquinaPatear2);
+
+		Scanner lector = new Scanner(System.in);
+		System.out.println("--------------------------------------------------------");
+		System.out.println("- ¡Bienvenido al programa para jugar a los penales!    -");
+		System.out.println("-                   ✌(ツ)                               -");
+		System.out.println("--------------------------------------------------------");
+		System.out.println("                                                 ");
+		System.out.println("---------------------------------------");
+		System.out.println("|      Seleccione un equipo ㋡:       |");
+		System.out.println("|      (EQUIPOS DISPONIBLES:)         |");
+		System.out.println("|0-Boca                               |");
+		System.out.println("|1-Peñarol                            |");
+		System.out.println("|2-Platense                           |");
+		System.out.println("|3-Riber                              |");
+		System.out.println("|4-Barcelona                          |");
+		System.out.println("|5-Botafogo                           |");
+		System.out.println("|6-Real Madrid                        |");
+		System.out.println("|7-Nacional                           |");
+		System.out.println("|8-Manchester United                  |");
+		System.out.println("|9-Betis                              |");
+		System.out.println("--------------------------------------");
+
+		int eleccionJugador = lector.nextInt();
+		if (eleccionJugador >= 10) {
+			System.out.println("Oh no te haz equivocado porfavor ingrese un numero valido");
+		}
+
+		System.out.println(equipos(eleccionJugador) + " vs la MAQUINA");
+		            
+			mostrarArco(CIAN);
+
+			System.out.println("¿Dónde deseas patear?");
+			System.out.print("Selecciona una opcion (1-9) para tirar hacia el arco: ");
+		
+			int eleccionJugadorPatear1 = lector.nextInt();
+			if (eleccionJugadorPatear1 >= 10) {
+				System.out.println(ROJO + "----------------------------------------------");
+				System.out.println("-Oh no te has equivocado ,has pateado hacia afuera del arco(selecciona entre 1-9 😠)");
+				System.out.println("----------------------------------------------"+ RESET);
+			}
+			
+			if (eleccionJugadorPatear1 != eleccionMaquinaAtajar1 && eleccionJugadorPatear1<=9 ) {
+				System.out.println(VERDE + "---------------------------------");
+				System.out.println("-¡GOOOOOOOOOL! rompiste el arco!!!");
+				System.out.println("---------------------------------" + RESET);
+				golesJugador++;
+			} else if(eleccionJugadorPatear1 == eleccionMaquinaAtajar1 && eleccionJugadorPatear1<=9) {
+				System.out.println(ROJO + "----------------------------------------------");
+				System.out.println("-¡Atajado! El arquero adivinó y paró la pelota.");
+				System.out.println("----------------------------------------------" + RESET);
+			}
+
+			System.out.println("Ahora la maquina patea");
+			mostrarArco(ROJO);
+
+			System.out.println("¿Dónde te lanzas para atajar?");
+			System.out.print("Selecciona una opcion (1-9) para donde tirarte hacia el arco: ");
+			int eleccionJugadorAtajar1 = lector.nextInt();
+
+			 if (eleccionJugadorAtajar1 != eleccionMaquinaPatear1 && eleccionMaquinaPatear1<=9) {
+				System.out.println(ROJO + "                    ");
+				System.out.println("---------------------");
+				System.out.println("-¡GOOL de la máquina");
+				System.out.println("---------------------");
+				System.out.println("                    " + RESET);
+				//hola ramiro
+				golesMaquina++;
+			} else if(eleccionJugadorAtajar1 == eleccionMaquinaPatear1 && eleccionMaquinaPatear1<=9) {
+				System.out.println(VERDE + "                    ");
+				System.out.println("------------");
+				System.out.println("|¡Atajado! |");
+				System.out.println("------------" + RESET);
+				System.out.println("                    ");
+			}
+		}
+			 mostrarArco(CIAN);
+			 
+			 for (int a = 2; a <= ronda2; a++) {
+					System.out.println("Ronda " + a);
+					
+				System.out.println("¿Dónde deseas patear?");
+				System.out.print("Selecciona una opcion (1-9) para tirar hacia el arco: ");
+			 int eleccionJugadorPatear2 = lector.nextInt();
+			 if (eleccionJugadorPatear2 != eleccionMaquinaAtajar2 && eleccionJugadorPatear2<=9 ) {
+					System.out.println(VERDE + "---------------------------------");
+					System.out.println("-¡GOOOOOOOOOL! rompiste el arco!!!");
+					System.out.println("---------------------------------" + RESET);
+					golesJugador++;
+				} else if(eleccionJugadorPatear2 == eleccionMaquinaAtajar2 && eleccionJugadorPatear2<=9) {
+					System.out.println(ROJO + "                                              ");
+					System.out.println("¡Atajado! El arquero adivinó y paró la pelota.");
+					System.out.println("                                              " + RESET);
+				}
+
+		}
+		
+		
+		System.out.println("|--------------------------------|");
+		System.out.println("|                                |");
+		System.out.println("|                                |");
+		System.out.println("|" + AMARILLO + "       RESULTADO FINAL:  " + RESET + "       |");
+		System.out.println("|                                |");
+		System.out.println("|                                |");
+		System.out.println("|--------------------------------|");
+		System.out.println("                                  ");
+		System.out.println("|---------------------------------|");
+		System.out.println("|" + VERDE + "Goles del Jugador:" + golesJugador + RESET + "              |");
+		System.out.println("|---------------------------------|");
+		System.out.println("|" + ROJO + "Goles de la Máquina:" + golesMaquina + RESET + "            |");
+		System.out.println("|---------------------------------|");
+	
+		if (golesJugador > golesMaquina) {
+			System.out.println("¡PA SOS UN GENIO,GANASTE!");
+		} else if (golesJugador < golesMaquina) {
+			System.out.println("PERDISTE ¿COMO PODES PERDER CONTRA UNA MAQUINA?");
+		} else {
+			System.out.println("¡¡¡VUELVE A REPETIR ESTO ESTO NO PUEDE QUEDAR ASI!!!");
+		}
+	
+        System.out.println("¿Estas seguro de que quieres jugar de nuevo? (si/no): ");
+        String respuesta = lector.next();
+        if (respuesta.equalsIgnoreCase("si")) {
+            inicio(rondas);  
+        } else{
+            System.out.println("Gracias por jugar ");
+	}
+}
+}
