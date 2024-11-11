@@ -2,13 +2,12 @@ package proyecto;
 
 import java.util.Scanner;
 
-public class hola {
-
+public class sa {
 	static Scanner lector = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		int rondaas = 1;
-		inicio(rondaas);
+		int rondas = 5;
+		inicio(rondas);
 	}
 
 	public static final String RESET = "\u001B[0m";
@@ -37,25 +36,12 @@ public class hola {
 		return seleccionado;
 	}
 
-	public static void inicio(int rondaas) {
+	public static void inicio(int rondas) {
 		int golesJugador = 0;
 		int golesMaquina = 0;
 
-		int eleccionMaquinaAtajar1 = (int) (Math.random() * 9 + 1);
-		System.out.println("la maquina eligio atajar1 " + eleccionMaquinaAtajar1);
-
-		int eleccionMaquinaPatear1 = (int) (Math.random() * 9 + 1);
-		System.out.println("la maquina eligio patear1 " + eleccionMaquinaPatear1);
-
-		int eleccionMaquinaAtajar2 = (int) (Math.random() * 9 + 1);
-		System.out.println("la maquina eligio atajar2 " + eleccionMaquinaAtajar2);
-
-		int eleccionMaquinaPatear2 = (int) (Math.random() * 9 + 1);
-		System.out.println("la maquina eligio patear2 " + eleccionMaquinaPatear2);
-
-		Scanner lector = new Scanner(System.in);
 		System.out.println("--------------------------------------------------------");
-		System.out.println("- ¡Bienvenido al programa para jugar a los penales!    -");
+		System.out.println("- ¡Bienvenido aal programa para jugar a los penales!    -");
 		System.out.println("-                   ✌(ツ)                               -");
 		System.out.println("--------------------------------------------------------");
 		System.out.println("                                                 ");
@@ -73,110 +59,114 @@ public class hola {
 		System.out.println("|8-Manchester United                  |");
 		System.out.println("|9-Betis                              |");
 		System.out.println("--------------------------------------");
-
 		int eleccionJugador = lector.nextInt();
 		if (eleccionJugador >= 10) {
 			System.out.println("Oh no te haz equivocado porfavor ingrese un numero valido");
 		}
-
 		System.out.println(equipos(eleccionJugador) + " vs la MAQUINA");
-		            
+		for (int i = 1; i <= rondas; i++) {
+			System.out.println("Ronda " + i);
+
+			int eleccionMaquinaAtajar = (int) (Math.random() * 9 + 1);
+			System.out.println("La Maquina eligio atajar1 " + eleccionMaquinaAtajar);
+
+			int eleccionMaquinaPatear = (int) (Math.random() * 9 + 1);
+			System.out.println("La Maquina eligio patear1 " + eleccionMaquinaPatear);
+			
+		System.out.println(CIAN+"Ahora te toca patear");
+		System.out.println("                    "+RESET);
 			mostrarArco(CIAN);
 
 			System.out.println("¿Dónde deseas patear?");
 			System.out.print("Selecciona una opcion (1-9) para tirar hacia el arco: ");
-		
-			int eleccionJugadorPatear1 = lector.nextInt();
-			if (eleccionJugadorPatear1 >= 10) {
+
+			int eleccionJugadorPatear = lector.nextInt();
+			if (eleccionJugadorPatear >= 10) {
 				System.out.println(ROJO + "----------------------------------------------");
 				System.out.println("-Oh no te has equivocado ,has pateado hacia afuera del arco(selecciona entre 1-9 😠)");
-				System.out.println("----------------------------------------------"+ RESET);
-			}
-			
-			if (eleccionJugadorPatear1 != eleccionMaquinaAtajar1 && eleccionJugadorPatear1<=9 ) {
-				System.out.println(VERDE + "---------------------------------");
-				System.out.println("-¡GOOOOOOOOOL! rompiste el arco!!!");
-				System.out.println("---------------------------------" + RESET);
-				golesJugador++;
-			} else if(eleccionJugadorPatear1 == eleccionMaquinaAtajar1 && eleccionJugadorPatear1<=9) {
-				System.out.println(ROJO + "----------------------------------------------");
-				System.out.println("-¡Atajado! El arquero adivinó y paró la pelota.");
 				System.out.println("----------------------------------------------" + RESET);
 			}
 
-			System.out.println("Ahora la maquina patea");
+			if (eleccionJugadorPatear != eleccionMaquinaAtajar && eleccionJugadorPatear <= 9) {
+				System.out.println(VERDE + "---------------------------------");
+				System.out.println("-¡GOOOOOOOOOL! rompiste el arco :D !!!");
+				System.out.println("---------------------------------" + RESET);
+				golesJugador++;
+			} else if (eleccionJugadorPatear == eleccionMaquinaAtajar && eleccionJugadorPatear <= 9) {
+				System.out.println(ROJO + "----------------------------------------------");
+				System.out.println("-¡Atajado!!");
+				System.out.println("----------------------------------------------" + RESET);
+			}
+
+			System.out.println("Ahora la Maquina patea");
 			mostrarArco(ROJO);
 
-			System.out.println("¿Dónde te lanzas para atajar?");
+			System.out.println("¿Dónde te tiras para atajar?");
 			System.out.print("Selecciona una opcion (1-9) para donde tirarte hacia el arco: ");
 			int eleccionJugadorAtajar1 = lector.nextInt();
 
-			 if (eleccionJugadorAtajar1 != eleccionMaquinaPatear1 && eleccionMaquinaPatear1<=9) {
+			if (eleccionJugadorAtajar1 != eleccionMaquinaPatear && eleccionMaquinaPatear <= 9) {
 				System.out.println(ROJO + "                    ");
-				System.out.println("---------------------");
-				System.out.println("-¡GOOL de la máquina");
-				System.out.println("---------------------");
+				System.out.println("----------------------------------------------");
+				System.out.println("-¡GOOL de la máquina !!");
+				System.out.println("----------------------------------------------");
 				System.out.println("                    " + RESET);
-				//hola ramiro
 				golesMaquina++;
-			} else if(eleccionJugadorAtajar1 == eleccionMaquinaPatear1 && eleccionMaquinaPatear1<=9) {
+			} else if (eleccionJugadorAtajar1 == eleccionMaquinaPatear && eleccionMaquinaPatear <= 9) {
 				System.out.println(VERDE + "                    ");
-				System.out.println("------------");
-				System.out.println("|¡Atajado! |");
-				System.out.println("------------" + RESET);
+				System.out.println("----------------------------------------------");
+				System.out.println("-¡Atajado! ");
+				System.out.println("----------------------------------------------" + RESET);
 				System.out.println("                    ");
 			}
 		}
-			 mostrarArco(CIAN);
-			 
-			 for (int a = 2; a <= ronda2; a++) {
-					System.out.println("Ronda " + a);
-					
-				System.out.println("¿Dónde deseas patear?");
-				System.out.print("Selecciona una opcion (1-9) para tirar hacia el arco: ");
-			 int eleccionJugadorPatear2 = lector.nextInt();
-			 if (eleccionJugadorPatear2 != eleccionMaquinaAtajar2 && eleccionJugadorPatear2<=9 ) {
-					System.out.println(VERDE + "---------------------------------");
-					System.out.println("-¡GOOOOOOOOOL! rompiste el arco!!!");
-					System.out.println("---------------------------------" + RESET);
-					golesJugador++;
-				} else if(eleccionJugadorPatear2 == eleccionMaquinaAtajar2 && eleccionJugadorPatear2<=9) {
-					System.out.println(ROJO + "                                              ");
-					System.out.println("¡Atajado! El arquero adivinó y paró la pelota.");
-					System.out.println("                                              " + RESET);
-				}
 
-		}
-		
-		
 		System.out.println("|--------------------------------|");
 		System.out.println("|                                |");
 		System.out.println("|                                |");
 		System.out.println("|" + AMARILLO + "       RESULTADO FINAL:  " + RESET + "       |");
 		System.out.println("|                                |");
+		
+		if (golesJugador > golesMaquina) {
+			System.out.println("|" +CIAN+"           GANASTE!!!         "+RESET+"  |");
+		}
+		if (golesJugador < golesMaquina) {
+			System.out.println("|" +ROJO+"       GANO LA MAQUINA?!?!?!?  "+RESET+" |");
+		}
+		if (golesJugador == golesMaquina) {
+			System.out.println("|" +AMARILLO+"          EMPATE?!?!?     "+RESET+"      |");
+		}
 		System.out.println("|                                |");
 		System.out.println("|--------------------------------|");
 		System.out.println("                                  ");
-		System.out.println("|---------------------------------|");
-		System.out.println("|" + VERDE + "Goles del Jugador:" + golesJugador + RESET + "              |");
-		System.out.println("|---------------------------------|");
-		System.out.println("|" + ROJO + "Goles de la Máquina:" + golesMaquina + RESET + "            |");
-		System.out.println("|---------------------------------|");
-	
+		System.out.println("|---------------------------------");
+		System.out.println("|" + VERDE + "Goles de "+equipos(eleccionJugador)+":"+golesJugador + RESET);
+		System.out.println("|---------------------------------");
+		System.out.println("|" + ROJO + "Goles de la Maquina:" + golesMaquina + RESET);
+		System.out.println("|---------------------------------");
+
 		if (golesJugador > golesMaquina) {
-			System.out.println("¡PA SOS UN GENIO,GANASTE!");
+			System.out.println(VERDE + "                           ");
+			System.out.println("¡PA SOS UN GENIO,GANASTE!!!");
+			System.out.println("                           " + RESET);
 		} else if (golesJugador < golesMaquina) {
+			System.out.println(ROJO + "                           ");
 			System.out.println("PERDISTE ¿COMO PODES PERDER CONTRA UNA MAQUINA?");
+			System.out.println("                           " + RESET);
 		} else {
+			System.out.println(AMARILLO + "                                                    ");
 			System.out.println("¡¡¡VUELVE A REPETIR ESTO ESTO NO PUEDE QUEDAR ASI!!!");
+			System.out.println("                                                    " + RESET);
 		}
-	
-        System.out.println("¿Estas seguro de que quieres jugar de nuevo? (si/no): ");
-        String respuesta = lector.next();
-        if (respuesta.equalsIgnoreCase("si")) {
-            inicio(rondas);  
-        } else{
-            System.out.println("Gracias por jugar ");
+
+		System.out.println("¿Te gustaría probar a jugar de nuevo? (si/no): ");
+
+		String respuesta = lector.next();
+		if (respuesta.equalsIgnoreCase("si")) {
+			inicio(rondas);
+		} else {
+			System.out.println("Gracias por jugar!!");
+
+		}
 	}
-}
 }
