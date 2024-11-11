@@ -68,13 +68,11 @@ public class sa {
 			System.out.println("Ronda " + i);
 
 			int eleccionMaquinaAtajar = (int) (Math.random() * 9 + 1);
-			System.out.println("La Maquina eligio atajar1 " + eleccionMaquinaAtajar);
 
 			int eleccionMaquinaPatear = (int) (Math.random() * 9 + 1);
-			System.out.println("La Maquina eligio patear1 " + eleccionMaquinaPatear);
-			
-		System.out.println(CIAN+"Ahora te toca patear");
-		System.out.println("                    "+RESET);
+
+			System.out.println(CIAN + "Ahora te toca patear");
+			System.out.println("                    " + RESET);
 			mostrarArco(CIAN);
 
 			System.out.println("¿Dónde deseas patear?");
@@ -83,7 +81,8 @@ public class sa {
 			int eleccionJugadorPatear = lector.nextInt();
 			if (eleccionJugadorPatear >= 10) {
 				System.out.println(ROJO + "----------------------------------------------");
-				System.out.println("-Oh no te has equivocado ,has pateado hacia afuera del arco(selecciona entre 1-9 😠)");
+				System.out.println(
+						"-Oh no te has equivocado ,has pateado hacia afuera del arco(selecciona entre 1-9 😠)");
 				System.out.println("----------------------------------------------" + RESET);
 			}
 
@@ -126,21 +125,21 @@ public class sa {
 		System.out.println("|                                |");
 		System.out.println("|" + AMARILLO + "       RESULTADO FINAL:  " + RESET + "       |");
 		System.out.println("|                                |");
-		
+
 		if (golesJugador > golesMaquina) {
-			System.out.println("|" +CIAN+"           GANASTE!!!         "+RESET+"  |");
+			System.out.println("|" + CIAN + "           GANASTE!!!         " + RESET + "  |");
 		}
 		if (golesJugador < golesMaquina) {
-			System.out.println("|" +ROJO+"       GANO LA MAQUINA?!?!?!?  "+RESET+" |");
+			System.out.println("|" + ROJO + "       GANO LA MAQUINA?!?!?!?  " + RESET + " |");
 		}
 		if (golesJugador == golesMaquina) {
-			System.out.println("|" +AMARILLO+"          EMPATE?!?!?     "+RESET+"      |");
+			System.out.println("|" + AMARILLO + "          EMPATE?!?!?     " + RESET + "      |");
 		}
 		System.out.println("|                                |");
 		System.out.println("|--------------------------------|");
 		System.out.println("                                  ");
 		System.out.println("|---------------------------------");
-		System.out.println("|" + VERDE + "Goles de "+equipos(eleccionJugador)+":"+golesJugador + RESET);
+		System.out.println("|" + VERDE + "Goles de " + equipos(eleccionJugador) + ":" + golesJugador + RESET);
 		System.out.println("|---------------------------------");
 		System.out.println("|" + ROJO + "Goles de la Maquina:" + golesMaquina + RESET);
 		System.out.println("|---------------------------------");
